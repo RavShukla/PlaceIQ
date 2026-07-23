@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="PlaceIQ - Machine learning powered student placement prediction and readiness analysis."
+    >
+
+    <title>PlaceIQ | Student Placement Predictor</title>
+
+    <!-- FAVICON -->
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="{{ url_for('static', filename='assets/favicon.ico') }}"
+    >
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a href="/" class="brand">
+
+            <span class="brand-mark">
+                P
+            </span>
+
+            <span class="brand-name">
+                Place<span>IQ</span>
+            </span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="/" class="active">
+                Home
+            </a>
+
+            <a href="/predict">
+                Predict
+            </a>
+
+            <a href="/about">
+                About
+            </a>
+
+        </div>
+
+
+        <a href="/predict" class="nav-button">
+            Analyze Profile
+            <span>→</span>
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+
+            <span class="eyebrow-dot"></span>
+
+            Machine Learning Powered
+
+        </div>
+
+
+        <h1>
+
+            Your placement potential,
+            <span>decoded by data.</span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            PlaceIQ analyzes your academics, aptitude, practical
+            experience and skills to estimate your placement readiness
+            using a trained machine learning model.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="/predict"
+                class="button button-primary"
+            >
+                Analyze My Profile
+                <span>→</span>
+            </a>
+
+
+            <a
+                href="#how-it-works"
+                class="button button-secondary"
+            >
+                How It Works
+            </a>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+            <div class="hero-stat">
+
+                <strong>
+                    10
+                </strong>
+
+                <span>
+                    Profile Factors
+                </span>
+
+            </div>
+
+
+            <div class="stat-divider"></div>
+
+
+            <div class="hero-stat">
+
+                <strong>
+                    ML
+                </strong>
+
+                <span>
+                    Prediction Model
+                </span>
+
+            </div>
+
+
+            <div class="stat-divider"></div>
+
+
+            <div class="hero-stat">
+
+                <strong>
+                    Live
+                </strong>
+
+                <span>
+                    Analysis
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         HERO VISUAL
+    ================================================== -->
+
+    <div class="hero-visual">
+
+        <div class="visual-glow"></div>
+
+
+        <div class="dashboard-card">
+
+
+            <div class="dashboard-header">
+
+                <div>
+
+                    <span class="card-overline">
+                        PLACEMENT ANALYSIS
+                    </span>
+
+                    <h3>
+                        Readiness Overview
+                    </h3>
+
+                </div>
+
+
+                <div class="live-badge">
+
+                    <span></span>
+
+                    Live
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Analysis Ring -->
+
+            <div class="readiness-area">
+
+
+                <div class="readiness-ring">
+
+                    <div class="readiness-inner">
+
+                        <strong>
+                            AI
+                        </strong>
+
+                        <span>
+                            Analysis
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="readiness-copy">
+
+                    <span>
+                        PROFILE ENGINE
+                    </span>
+
+                    <strong>
+                        Data-driven
+                        placement insight
+                    </strong>
+
+                    <p>
+                        10 factors analyzed
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Metrics -->
+
+            <div class="dashboard-metrics">
+
+
+                <div class="dashboard-metric">
+
+                    <div class="metric-heading">
+
+                        <span>
+                            Academic Profile
+                        </span>
+
+                        <span>
+                            CGPA
+                        </span>
+
+                    </div>
+
+
+                    <div class="metric-track">
+
+                        <div
+                            class="metric-fill"
+                            style="--metric-width: 86%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="dashboard-metric">
+
+                    <div class="metric-heading">
+
+                        <span>
+                            Practical Experience
+                        </span>
+
+                        <span>
+                            Projects
+                        </span>
+
+                    </div>
+
+
+                    <div class="metric-track">
+
+                        <div
+                            class="metric-fill"
+                            style="--metric-width: 72%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="dashboard-metric">
+
+                    <div class="metric-heading">
+
+                        <span>
+                            Aptitude & Skills
+                        </span>
+
+                        <span>
+                            Score
+                        </span>
+
+                    </div>
+
+
+                    <div class="metric-track">
+
+                        <div
+                            class="metric-fill"
+                            style="--metric-width: 91%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="dashboard-footer">
+
+                <div class="mini-icon">
+                    ↗
+                </div>
+
+                <p>
+                    Complete your profile to generate your
+                    personalized placement prediction.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Floating Model Card -->
+
+        <div class="floating-card floating-card-top">
+
+            <span>
+                MODEL
+            </span>
+
+            <strong>
+                Logistic Regression
+            </strong>
+
+        </div>
+
+
+
+        <!-- Floating Result Card -->
+
+        <div class="floating-card floating-card-bottom">
+
+            <div class="floating-check">
+                ✓
+            </div>
+
+
+            <div>
+
+                <span>
+                    ANALYSIS
+                </span>
+
+                <strong>
+                    Instant Result
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
+
+<section
+    class="section section-white"
+    id="how-it-works"
+>
+
+    <div class="section-heading">
+
+        <div class="eyebrow centered">
+            Simple Process
+        </div>
+
+
+        <h2>
+            From profile to
+            <span>prediction.</span>
+        </h2>
+
+
+        <p>
+            Your placement analysis takes just three simple steps.
+        </p>
+
+    </div>
+
+
+
+    <div class="steps-grid">
+
+
+        <!-- Step 1 -->
+
+        <article class="step-card">
+
+            <div class="step-top">
+
+                <span class="step-number">
+                    01
+                </span>
+
+                <span class="step-line"></span>
+
+            </div>
+
+
+            <div class="step-icon">
+                01
+            </div>
+
+
+            <h3>
+                Enter Your Profile
+            </h3>
+
+
+            <p>
+                Provide your academic scores, projects,
+                internships, aptitude and other placement factors.
+            </p>
+
+        </article>
+
+
+
+        <!-- Step 2 -->
+
+        <article class="step-card">
+
+            <div class="step-top">
+
+                <span class="step-number">
+                    02
+                </span>
+
+                <span class="step-line"></span>
+
+            </div>
+
+
+            <div class="step-icon">
+                ML
+            </div>
+
+
+            <h3>
+                Model Analysis
+            </h3>
+
+
+            <p>
+                Flask sends your profile data to the trained
+                machine learning classification model.
+            </p>
+
+        </article>
+
+
+
+        <!-- Step 3 -->
+
+        <article class="step-card">
+
+            <div class="step-top">
+
+                <span class="step-number">
+                    03
+                </span>
+
+            </div>
+
+
+            <div class="step-icon">
+                %
+            </div>
+
+
+            <h3>
+                Get Your Result
+            </h3>
+
+
+            <p>
+                Receive your predicted placement outcome
+                together with the model confidence.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROFILE FACTORS
+===================================================== -->
+
+<section class="section factors-section">
+
+    <div class="section-heading">
+
+        <div class="eyebrow centered">
+            Profile Intelligence
+        </div>
+
+
+        <h2>
+            Your profile.
+            <span>Multiple dimensions.</span>
+        </h2>
+
+
+        <p>
+            PlaceIQ evaluates academic performance, experience
+            and placement preparation together.
+        </p>
+
+    </div>
+
+
+
+    <div class="factor-grid">
+
+
+        <article class="factor-card">
+
+            <span class="factor-number">
+                01
+            </span>
+
+            <h3>
+                Academics
+            </h3>
+
+            <p>
+                CGPA, SSC marks and HSC marks.
+            </p>
+
+        </article>
+
+
+
+        <article class="factor-card">
+
+            <span class="factor-number">
+                02
+            </span>
+
+            <h3>
+                Internships
+            </h3>
+
+            <p>
+                Practical exposure to real-world work.
+            </p>
+
+        </article>
+
+
+
+        <article class="factor-card">
+
+            <span class="factor-number">
+                03
+            </span>
+
+            <h3>
+                Projects
+            </h3>
+
+            <p>
+                Hands-on technical and problem-solving experience.
+            </p>
+
+        </article>
+
+
+
+        <article class="factor-card">
+
+            <span class="factor-number">
+                04
+            </span>
+
+            <h3>
+                Certifications
+            </h3>
+
+            <p>
+                Workshops and additional professional learning.
+            </p>
+
+        </article>
+
+
+
+        <article class="factor-card">
+
+            <span class="factor-number">
+                05
+            </span>
+
+            <h3>
+                Aptitude & Soft Skills
+            </h3>
+
+            <p>
+                Aptitude performance and interpersonal skills.
+            </p>
+
+        </article>
+
+
+
+        <article class="factor-card">
+
+            <span class="factor-number">
+                06
+            </span>
+
+            <h3>
+                Placement Preparation
+            </h3>
+
+            <p>
+                Training and extracurricular participation.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta-wrapper">
+
+    <div class="cta-card">
+
+        <div class="cta-glow"></div>
+
+
+        <div>
+
+            <div class="eyebrow eyebrow-dark">
+                Ready To Begin?
+            </div>
+
+
+            <h2>
+                Put your profile through
+                the model.
+            </h2>
+
+
+            <p>
+                Complete the assessment and generate your
+                placement prediction.
+            </p>
+
+        </div>
+
+
+        <a
+            href="/predict"
+            class="button button-light"
+        >
+            Start Analysis
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div>
+
+            <a href="/" class="brand">
+
+                <span class="brand-mark">
+                    P
+                </span>
+
+                <span class="brand-name">
+                    Place<span>IQ</span>
+                </span>
+
+            </a>
+
+
+            <p>
+                Machine learning powered placement intelligence.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/predict">
+                Predict
+            </a>
+
+            <a href="/about">
+                About
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 PlaceIQ
+        </span>
+
+        <span>
+            Data Science • Machine Learning • Flask
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script
+    src="{{ url_for('static', filename='js/main.js') }}"
+></script>
+
+
+</body>
+</html>

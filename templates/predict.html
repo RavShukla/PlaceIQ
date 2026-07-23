@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Analyze your student profile with PlaceIQ."
+    >
+
+    <title>Analyze Profile | PlaceIQ</title>
+
+      <link
+        rel="icon"
+        type="image/x-icon"
+        href="{{ url_for('static', filename='assets/favicon.ico') }}"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a href="/" class="brand">
+
+            <span class="brand-mark">
+                P
+            </span>
+
+            <span class="brand-name">
+                Place<span>IQ</span>
+            </span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/predict" class="active">
+                Predict
+            </a>
+
+            <a href="/about">
+                About
+            </a>
+
+        </div>
+
+
+        <a href="/predict" class="nav-button">
+            Analyze Profile
+            <span>→</span>
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="prediction-page">
+
+
+    <!-- =================================================
+         PAGE HEADER
+    ================================================== -->
+
+    <section class="prediction-hero">
+
+        <div class="eyebrow centered">
+            Placement Assessment
+        </div>
+
+        <h1>
+            Let's analyze your
+            <span>placement readiness.</span>
+        </h1>
+
+        <p>
+            Enter your information below. PlaceIQ will send these
+            features to your trained machine learning model and
+            generate a placement prediction.
+        </p>
+
+
+        <div class="assessment-meta">
+
+            <span>
+                <strong>10</strong>
+                inputs
+            </span>
+
+            <span class="meta-dot"></span>
+
+            <span>
+                <strong>~2 min</strong>
+                assessment
+            </span>
+
+            <span class="meta-dot"></span>
+
+            <span>
+                <strong>Instant</strong>
+                analysis
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MAIN PREDICTION AREA
+    ================================================== -->
+
+    <section class="prediction-layout">
+
+
+        <!-- =========================
+             FORM
+        ========================== -->
+
+        <form id="predictionForm" class="prediction-form">
+
+
+            <!-- Progress Header -->
+
+            <div class="form-progress">
+
+                <div class="progress-item active">
+
+                    <span>01</span>
+
+                    <div>
+                        <strong>Academics</strong>
+                        <small>Education</small>
+                    </div>
+
+                </div>
+
+
+                <div class="progress-connector"></div>
+
+
+                <div class="progress-item">
+
+                    <span>02</span>
+
+                    <div>
+                        <strong>Experience</strong>
+                        <small>Practical work</small>
+                    </div>
+
+                </div>
+
+
+                <div class="progress-connector"></div>
+
+
+                <div class="progress-item">
+
+                    <span>03</span>
+
+                    <div>
+                        <strong>Skills</strong>
+                        <small>Readiness</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 ACADEMICS
+            ============================================== -->
+
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <div class="section-icon">
+                        01
+                    </div>
+
+                    <div>
+
+                        <span>ACADEMIC PROFILE</span>
+
+                        <h2>
+                            Your academic performance
+                        </h2>
+
+                        <p>
+                            Tell us about your current and previous
+                            academic performance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- CGPA -->
+
+                    <div class="field-group">
+
+                        <div class="field-heading">
+
+                            <label for="cgpa">
+                                CGPA
+                            </label>
+
+                            <span>
+                                out of 10
+                            </span>
+
+                        </div>
+
+                        <input
+                            type="number"
+                            id="cgpa"
+                            name="CGPA"
+                            min="0"
+                            max="10"
+                            step="0.01"
+                            placeholder="e.g. 8.40"
+                            required
+                        >
+
+                        <small>
+                            Your current cumulative grade point average.
+                        </small>
+
+                    </div>
+
+
+                    <!-- SSC -->
+
+                    <div class="field-group">
+
+                        <div class="field-heading">
+
+                            <label for="ssc">
+                                SSC Marks
+                            </label>
+
+                            <span>
+                                out of 100
+                            </span>
+
+                        </div>
+
+                        <div class="input-suffix">
+
+                            <input
+                                type="number"
+                                id="ssc"
+                                name="SSC_Marks"
+                                min="0"
+                                max="100"
+                                step="0.01"
+                                placeholder="e.g. 86"
+                                required
+                            >
+
+                            <span>%</span>
+
+                        </div>
+
+                        <small>
+                            Your secondary school percentage.
+                        </small>
+
+                    </div>
+
+
+                    <!-- HSC -->
+
+                    <div class="field-group">
+
+                        <div class="field-heading">
+
+                            <label for="hsc">
+                                HSC Marks
+                            </label>
+
+                            <span>
+                                out of 100
+                            </span>
+
+                        </div>
+
+                        <div class="input-suffix">
+
+                            <input
+                                type="number"
+                                id="hsc"
+                                name="HSC_Marks"
+                                min="0"
+                                max="100"
+                                step="0.01"
+                                placeholder="e.g. 82"
+                                required
+                            >
+
+                            <span>%</span>
+
+                        </div>
+
+                        <small>
+                            Your higher secondary school percentage.
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 EXPERIENCE
+            ============================================== -->
+
+            <div class="form-divider"></div>
+
+
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <div class="section-icon">
+                        02
+                    </div>
+
+                    <div>
+
+                        <span>
+                            PRACTICAL EXPERIENCE
+                        </span>
+
+                        <h2>
+                            What have you built and explored?
+                        </h2>
+
+                        <p>
+                            Include practical experience gained beyond
+                            regular coursework.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <div class="field-group">
+
+                        <div class="field-heading">
+
+                            <label for="internships">
+                                Internships
+                            </label>
+
+                            <span>
+                                count
+                            </span>
+
+                        </div>
+
+                        <input
+                            type="number"
+                            id="internships"
+                            name="Internships"
+                            min="0"
+                            step="1"
+                            placeholder="e.g. 2"
+                            required
+                        >
+
+                        <small>
+                            Number of internships completed.
+                        </small>
+
+                    </div>
+
+
+                    <div class="field-group">
+
+                        <div class="field-heading">
+
+                            <label for="projects">
+                                Projects
+                            </label>
+
+                            <span>
+                                count
+                            </span>
+
+                        </div>
+
+                        <input
+                            type="number"
+                            id="projects"
+                            name="Projects"
+                            min="0"
+                            step="1"
+                            placeholder="e.g. 4"
+                            required
+                        >
+
+                        <small>
+                            Number of significant projects completed.
+                        </small>
+
+                    </div>
+
+
+                    <div class="field-group field-wide">
+
+                        <div class="field-heading">
+
+                            <label for="workshops">
+                                Workshops / Certifications
+                            </label>
+
+                            <span>
+                                count
+                            </span>
+
+                        </div>
+
+                        <input
+                            type="number"
+                            id="workshops"
+                            name="Workshops/Certifications"
+                            min="0"
+                            step="1"
+                            placeholder="e.g. 3"
+                            required
+                        >
+
+                        <small>
+                            Relevant workshops or professional
+                            certifications completed.
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 SKILLS
+            ============================================== -->
+
+            <div class="form-divider"></div>
+
+
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <div class="section-icon">
+                        03
+                    </div>
+
+                    <div>
+
+                        <span>
+                            SKILLS & READINESS
+                        </span>
+
+                        <h2>
+                            Your placement preparation
+                        </h2>
+
+                        <p>
+                            The final factors describe aptitude,
+                            communication and placement preparation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- Aptitude -->
+
+                    <div class="field-group">
+
+                        <div class="field-heading">
+
+                            <label for="aptitude">
+                                Aptitude Test Score
+                            </label>
+
+                            <span>
+                                out of 100
+                            </span>
+
+                        </div>
+
+                        <div class="input-suffix">
+
+                            <input
+                                type="number"
+                                id="aptitude"
+                                name="AptitudeTestScore"
+                                min="0"
+                                max="100"
+                                step="1"
+                                placeholder="e.g. 78"
+                                required
+                            >
+
+                            <span>/100</span>
+
+                        </div>
+
+                        <small>
+                            Your aptitude assessment score.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Soft Skills -->
+
+                    <div class="field-group">
+
+                        <div class="field-heading">
+
+                            <label for="softSkills">
+                                Soft Skills Rating
+                            </label>
+
+                            <span>
+                                out of 5
+                            </span>
+
+                        </div>
+
+                        <div class="input-suffix">
+
+                            <input
+                                type="number"
+                                id="softSkills"
+                                name="SoftSkillsRating"
+                                min="0"
+                                max="5"
+                                step="0.1"
+                                placeholder="e.g. 4.2"
+                                required
+                            >
+
+                            <span>/5</span>
+
+                        </div>
+
+                        <small>
+                            Communication and interpersonal skills.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Extracurricular -->
+
+                    <div class="field-group">
+
+                        <div class="field-heading">
+
+                            <label for="extracurricular">
+                                Extracurricular Activities
+                            </label>
+
+                            <span>
+                                yes / no
+                            </span>
+
+                        </div>
+
+                        <select
+                            id="extracurricular"
+                            name="ExtracurricularActivities"
+                            required
+                        >
+
+                            <option value="" disabled selected>
+                                Select an option
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                            <option value="0">
+                                No
+                            </option>
+
+                        </select>
+
+                        <small>
+                            Participation in activities outside academics.
+                        </small>
+
+                    </div>
+
+
+                    <!-- Training -->
+
+                    <div class="field-group">
+
+                        <div class="field-heading">
+
+                            <label for="training">
+                                Placement Training
+                            </label>
+
+                            <span>
+                                yes / no
+                            </span>
+
+                        </div>
+
+                        <select
+                            id="training"
+                            name="PlacementTraining"
+                            required
+                        >
+
+                            <option value="" disabled selected>
+                                Select an option
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                            <option value="0">
+                                No
+                            </option>
+
+                        </select>
+
+                        <small>
+                            Whether you have undergone placement training.
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Submit -->
+
+            <div class="form-submit-area">
+
+                <div class="submit-info">
+
+                    <span class="secure-dot"></span>
+
+                    <p>
+                        Your information is used only to generate
+                        this prediction.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="prediction-submit"
+                >
+
+                    <span>
+                        Analyze My Profile
+                    </span>
+
+                    <span class="submit-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </form>
+
+
+
+        <!-- =========================
+             SIDE PANEL
+        ========================== -->
+
+        <aside class="prediction-sidebar">
+
+
+            <div class="sidebar-card sidebar-primary">
+
+                <span class="sidebar-label">
+                    PLACEIQ MODEL
+                </span>
+
+                <h3>
+                    What happens after you submit?
+                </h3>
+
+
+                <div class="sidebar-flow">
+
+                    <div class="flow-item">
+
+                        <span>01</span>
+
+                        <div>
+                            <strong>Validate</strong>
+                            <p>Your inputs are checked.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="flow-line"></div>
+
+
+                    <div class="flow-item">
+
+                        <span>02</span>
+
+                        <div>
+                            <strong>Analyze</strong>
+                            <p>The ML model processes your profile.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="flow-line"></div>
+
+
+                    <div class="flow-item">
+
+                        <span>03</span>
+
+                        <div>
+                            <strong>Predict</strong>
+                            <p>Your result and confidence are generated.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="sidebar-card">
+
+                <div class="sidebar-small-heading">
+
+                    <span class="info-icon">
+                        i
+                    </span>
+
+                    <strong>
+                        Keep it accurate
+                    </strong>
+
+                </div>
+
+                <p class="sidebar-description">
+                    Use your actual academic and experience data.
+                    The quality of the prediction depends on the
+                    quality of the information provided.
+                </p>
+
+            </div>
+
+
+            <div class="sidebar-card model-card">
+
+                <span>
+                    MODEL TYPE
+                </span>
+
+                <strong>
+                    Logistic Regression
+                </strong>
+
+                <p>
+                    Binary classification
+                </p>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RESULT
+    ================================================== -->
+
+    <section
+        id="predictionResult"
+        class="prediction-result"
+        hidden
+    >
+
+        <div class="result-icon">
+            ✓
+        </div>
+
+        <span class="result-overline">
+            PLACEMENT ANALYSIS
+        </span>
+
+        <h2>
+            Your Prediction
+        </h2>
+
+        <p id="predictionText"></p>
+
+        <div class="result-confidence">
+
+            <span>
+                Confidence
+            </span>
+
+            <strong id="probabilityText"></strong>
+
+        </div>
+
+
+        <a
+            href="/predict"
+            class="button button-secondary result-button"
+        >
+            Analyze Another Profile
+        </a>
+
+    </section>
+
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div>
+
+            <a href="/" class="brand">
+
+                <span class="brand-mark">
+                    P
+                </span>
+
+                <span class="brand-name">
+                    Place<span>IQ</span>
+                </span>
+
+            </a>
+
+            <p>
+                Machine learning powered placement intelligence.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/predict">
+                Predict
+            </a>
+
+            <a href="/about">
+                About
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 PlaceIQ
+        </span>
+
+        <span>
+            Data Science • Machine Learning • Flask
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
